@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "xyz.create.CreateExpoEnvironment",
+      "sha256_cert_fingerprints": [
+        "BCA192095ECC0652213FC216B63731EC47F46CF1DE2BDFD878DB010F1F838F43",
+        "725E1287C63B758EF7ECB7DA750931F76126780116A3D964D4AC93ACE4394EB1"
+      ]
+    }
+  }
+]

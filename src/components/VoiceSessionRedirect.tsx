@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-function VoiceSessionRedirect() {
+function VoiceSessionRedirect(): JSX.Element {
   const { sessionId } = useParams<{ sessionId: string }>();
   const [searchParams] = useSearchParams();
-  const token = searchParams.get('token');
+  const token: string | null = searchParams.get('token');
 
   useEffect(() => {
     if (!sessionId) {

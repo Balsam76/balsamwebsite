@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 
 function VoiceSessionRedirect() {
   const { sessionId } = useParams<{ sessionId: string }>();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
 
   useEffect(() => {
     if (!sessionId) {
@@ -15,7 +17,10 @@ function VoiceSessionRedirect() {
       return;
     }
 
-    const deepLink = `balsamapp://voice-session/${sessionId}`;
+    // ✅ بناء deep link مع token إذا وُجد
+    const deepLink = token 
+      ? `balsamapp://voice-session/${sessionId}?token=${token}`
+      : `balsamapp://voice-session/${sessionId}`;
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isAndroid = /Android/.test(navigator.userAgent);
     const isMobile = isIOS || isAndroid;
@@ -60,7 +65,7 @@ function VoiceSessionRedirect() {
         }
       }, 200);
     }
-  }, [sessionId]);
+  }, [sessionId, token]);
 
   if (!sessionId) {
     return (
@@ -96,7 +101,7 @@ function VoiceSessionRedirect() {
         <h1 className="text-3xl font-bold mb-4">جاري فتح التطبيق...</h1>
         <p className="text-lg opacity-90 mb-8">سيتم توجيهك إلى الجلسة الصوتية في تطبيق بلسم</p>
         <a
-          href={`balsamapp://voice-session/${sessionId}`}
+          href={token ? `balsamapp://voice-session/${sessionId}?token=${token}` : `balsamapp://voice-session/${sessionId}`}
           className="inline-block px-8 py-4 bg-white text-purple-600 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all opacity-0 animate-fade-in"
           style={{ animationDelay: '2s', animationFillMode: 'forwards' }}
         >

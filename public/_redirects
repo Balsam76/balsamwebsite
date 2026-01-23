@@ -1,3 +1,4 @@
 # Netlify redirects
 /.well-known/assetlinks.json /.well-known/assetlinks.json 200
+/j/* /index.html 200
 /voice-session/* /index.html 200

@@ -7,12 +7,12 @@
           "TEAM_ID.xyz.create.CreateExpoEnvironment"
         ],
         "paths": [
-          "/voice-session/*"
+          "/j/*"
         ],
         "components": [
           {
-            "/": "/voice-session/*",
-            "comment": "Matches voice session links"
+            "/": "/j/*",
+            "comment": "Matches voice session links (Zoom-style format)"
           }
         ]
       }

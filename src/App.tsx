@@ -31,7 +31,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/voice-session/:sessionId" element={<VoiceSessionRedirect />} />
+        <Route path="/j/:sessionId" element={<VoiceSessionRedirect />} />
       </Routes>
     </BrowserRouter>
   );

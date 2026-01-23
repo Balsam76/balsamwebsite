@@ -9,7 +9,7 @@
       "destination": "/.well-known/apple-app-site-association"
     },
     {
-      "source": "/voice-session/:sessionId",
+      "source": "/j/:sessionId",
       "destination": "/index.html"
     }
   ],

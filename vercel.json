@@ -10,7 +10,7 @@
     },
     {
       "source": "/j/:sessionId",
-      "destination": "/index.html"
+      "destination": "/api/j/:sessionId"
     }
   ],
   "headers": [
